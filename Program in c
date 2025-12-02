@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct { double a,b; } Calculator;
+
+double add(Calculator c){ return c.a+c.b; }
+double sub(Calculator c){ return c.a-c.b; }
+double mul(Calculator c){ return c.a*c.b; }
+double divi(Calculator c){ return c.b!=0 ? c.a/c.b : 0; }
+
+int main() {
+    Calculator c; char op[10];
+    printf("a b: "); scanf("%lf %lf",&c.a,&c.b);
+    printf("Operation: "); scanf("%s",op);
+    for(int i=0;op[i];i++) if(op[i]>='A'&&op[i]<='Z') op[i]+='a'-'A';
+    if(strcmp(op,"add")==0) printf("%.2lf\n",add(c));
+    else if(strcmp(op,"subtract")==0) printf("%.2lf\n",sub(c));
+    else if(strcmp(op,"multiply")==0) printf("%.2lf\n",mul(c));
+    else if(strcmp(op,"divide")==0) printf(c.b!=0?"%.2lf\n":"Error: Division by zero\n",divi(c));
+    else printf("Invalid operation\n");
+}
