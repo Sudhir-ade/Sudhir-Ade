@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    int a;
+    
+    // Input
+    scanf("%d", &a);
+    
+    // Print the series
+    for (int i = 1; i <= a; i++) {
+        int odd = 2 * i - 1;   // formula for odd number
+        printf("%d", odd);
+        
+        if (i < a) {
+            printf(", ");     // print comma except after last
+        }
+    }
+    
+    return 0;
+}
